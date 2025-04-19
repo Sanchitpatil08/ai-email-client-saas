@@ -40,9 +40,12 @@ export const GET = async (req: NextRequest) => {
         }
     })
     
+    console.log('account Id', token.accountId.toString())
+    console.log('userId', userId)
 
     waitUntil(
-        axios.post(`${process.env.NEXT_PUBLIC_URL}/api/initial-sync`, {
+            
+        axios.post(`http://localhost:3000/api/initial-syn`, {
             accountId : token.accountId.toString(),
             userId
         }).then(response =>{
